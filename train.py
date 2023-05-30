@@ -94,23 +94,23 @@ train_loader = DataLoader(train_dataset, batch_size=16, shuffle=True)
 
 optim = AdamW(model.parameters(), lr=5e-5)
 
-for epoch in range(3):
-  print(f"epoch - {epoch}")
-  bt = 0
-  for batch in train_loader:
-      optim.zero_grad()
-      input_ids = batch['input_ids'].to(device)
-      attention_mask = batch['attention_mask'].to(device)
-      labels = batch['labels'].to(device)
-      outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
-      loss = outputs[0]
-      if bt % 500 == 0:
-        print(f"epoch - {epoch} batch - {bt} - loss - {loss.item()}")
-      bt += 1
-      loss.backward()
-      optim.step()
+# for epoch in range(3):
+#   print(f"epoch - {epoch}")
+#   bt = 0
+#   for batch in train_loader:
+#       optim.zero_grad()
+#       input_ids = batch['input_ids'].to(device)
+#       attention_mask = batch['attention_mask'].to(device)
+#       labels = batch['labels'].to(device)
+#       outputs = model(input_ids, attention_mask=attention_mask, labels=labels)
+#       loss = outputs[0]
+#       if bt % 500 == 0:
+#         print(f"epoch - {epoch} batch - {bt} - loss - {loss.item()}")
+#       bt += 1
+#       loss.backward()
+#       optim.step()
 
-  print(f"end of epoch {epoch} - total batches - {bt}")
+#   print(f"end of epoch {epoch} - total batches - {bt}")
 
 
 
