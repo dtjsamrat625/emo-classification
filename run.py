@@ -15,7 +15,7 @@ if option == "Emotion detections":
 	text = st.text_input("Enter text to be classified")
 	model.eval()
 	device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-	encoded_texts = tokenizer(txts, padding=True, truncation=True, return_tensors='pt').to(device)
+	encoded_texts = tokenizer([text], padding=True, truncation=True, return_tensors='pt').to(device)
 	outputs = model(encoded_texts['input_ids'], attention_mask=encoded_texts['attention_mask'])
 	outs = F.softmax(outputs.logits, dim = 1)
 	predicted_labels = torch.argmax(outs, dim = 1)
