@@ -8,12 +8,14 @@ from torch.utils.data import DataLoader
 from transformers import DistilBertForSequenceClassification, AdamW
 import torch.nn.functional as F
 
+'''
 c1 = 'wget -P ./ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_1.csv'
 c2 = 'wget -P ./ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_2.csv'
 c3 = 'wget -P ./ https://storage.googleapis.com/gresearch/goemotions/data/full_dataset/goemotions_3.csv'
 os.system(c1)
 os.system(c2)
 os.system(c3)
+'''
 
 path_1 = './goemotions_1.csv'
 d1 = pd.read_csv(path_1)
