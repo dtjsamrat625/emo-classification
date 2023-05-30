@@ -23,6 +23,7 @@ if option == "Emotion detections":
 	#assign label 1 to admiration, 0 to annoyance
 	label_dict = { 0:'annoyance', 1: 'admiration'}
 	st.write(text, predicted_labels.item())
+	st.write(outs)
 	st.write(label_dict[predicted_labels.item()])
 	
 if option == "Project 2":
