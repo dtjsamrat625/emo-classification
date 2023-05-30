@@ -22,7 +22,7 @@ if option == "Emotion detections":
 	predicted_labels = torch.argmax(outs, dim = 1)
 	#assign label 1 to admiration, 0 to annoyance
 	label_dict = { 0:'annoyance', 1: 'admiration'}
-	print(text, predicted_labels.item())
+	st.write(text, predicted_labels.item())
 	st.write(label_dict[predicted_labels.item()])
 	
 if option == "Project 2":
