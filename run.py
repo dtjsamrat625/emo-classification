@@ -2,7 +2,6 @@ import torch
 import streamlit as st
 import pandas as pd
 import numpy as np
-from model import nw
 from train import tokenizer, model
 import torch.nn.functional as F
 
