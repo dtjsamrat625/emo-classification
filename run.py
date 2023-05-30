@@ -13,6 +13,7 @@ st.header(option)
 if option == "Emotion detections":
 	st.write("A classifier to label annoyance or admiration content")
 	text = st.text_input("Enter text to be classified")
+	print(text)
 	model.eval()
 	device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 	encoded_texts = tokenizer([text], padding=True, truncation=True, return_tensors='pt').to(device)
@@ -21,6 +22,7 @@ if option == "Emotion detections":
 	predicted_labels = torch.argmax(outs, dim = 1)
 	#assign label 1 to admiration, 0 to annoyance
 	label_dict = { 0:'annoyance', 1: 'admiration'}
+	print(text, predicted_labels.item())
 	st.write(label_dict[predicted_labels.item()])
 	
 if option == "Project 2":
