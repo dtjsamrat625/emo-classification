@@ -85,7 +85,7 @@ test_dataset = dataset(test_encodings, test_labels)
 
 
 device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
-
+print(f"Training on device {device}...")
 model = DistilBertForSequenceClassification.from_pretrained('distilbert-base-uncased')
 model.to(device)
 model.train()
